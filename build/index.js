@@ -6,7 +6,7 @@ const rename = require('gulp-rename')
 const plumber = require('gulp-plumber')
 const rollup = require('gulp-better-rollup')
 const sourcemaps = require('gulp-sourcemaps')
-const version = require('./package.json').version
+const version = require('../package.json').version
 
 const plugins = [
 	require('rollup-plugin-node-resolve')({ module: true, browser: true }),
@@ -16,20 +16,19 @@ const plugins = [
 ]
 
 const config = {
-  entry: 'src/index.js',
-	output: 'crypto-helpers',
-	distFolder: 'dist',
-	watch: 'src/*.js',
+  entry: '../src/*.js',
+	dist: '../',
+	watch: '../src/*.js',
 	eslint: { fix: true },
 	rollup: {
 		format: 'umd',
-		name: 'CryptoHelpers',
-		banner: `/*! crypto-helpers v${version} */`
+		name: 'CryptoRng',
+		banner: `/*! crypto-rng v${version} */`
 	}
 }
 
-// dev build
-gulp.task('js', () =>
+// build
+gulp.task('build', () =>
 	gulp.src(config.entry)
 		.pipe(plumber(function(e) {
 			let msg = (e.loc.file)
@@ -43,24 +42,10 @@ gulp.task('js', () =>
 		.pipe(eslint.format())
 		.pipe(sourcemaps.init())
 		.pipe(rollup({ plugins }, config.rollup))
-		.pipe(rename({
-			dirname: '',
-			basename: config.output
-		}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(config.distFolder)))
+		.pipe(gulp.dest(config.dist)))
 
-// production build
-gulp.task('build', ['js'], () => {
-	gulp.src(`${config.distFolder}/${config.output}.js`)
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(uglify({
-			output: { comments: /^\!/ }
-		}))
-		.pipe(gulp.dest(config.distFolder))
-})
-
-// dev watch task
-gulp.task('dev', ['js'], () => {
-	gulp.watch(config.watch, ['js'])
+// dev
+gulp.task('dev', ['build'], () => {
+	gulp.watch(config.watch, ['build'])
 })

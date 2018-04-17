@@ -2,8 +2,8 @@ import fromArray from './from-array'
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-export default (length = 1, uppercase = false) =>
+export default (length = 1) =>
 	Array(length)
-		.fill((uppercase) ? alphabet.toUpperCase() : alphabet)
+		.fill(alphabet)
 		.map(alpha => fromArray(alpha))
 		.join('')

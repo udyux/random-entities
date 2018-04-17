@@ -1,4 +1,4 @@
-import generator from './generator'
+import generate from './generate'
 
 export default (min, max, inc) =>
-  (generator() * (max - min + ~~(inc)) | 0) + min
+  (generate() * (max - min + ~~(inc)) | 0) + min

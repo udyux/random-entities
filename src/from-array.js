@@ -1,4 +1,4 @@
-import generator from './generator'
+import generate from './generate'
 
 export default (arr) =>
-  arr[generator() * arr.length >> 0]
+  arr[generate() * arr.length >> 0]

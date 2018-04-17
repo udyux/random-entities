@@ -1,4 +1,4 @@
-import generator from './generator'
+import generate from './generate'
 
 export default (min, max, precision = 2) =>
-  parseFloat(((generator() * (max - min)) + min).toFixed(parseInt(precision)))
+  parseFloat(((generate() * (max - min)) + min).toFixed(parseInt(precision)))
