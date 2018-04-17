@@ -1,0 +1,46 @@
+{
+  "name": "crypto-helpers",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Nicolas Udy <dev@udy.io>",
+  "private": true,
+  "main": "dist/crypto-helpers.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "space-before-function-paren": 0,
+      "object-property-newline": 0,
+      "arrow-parens": 0,
+      "new-cap": 0,
+      "no-eval": 0,
+      "semi": 0
+    }
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-better-rollup": "^3.0.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3"
+  }
+}

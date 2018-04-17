@@ -1,0 +1,66 @@
+'use strict'
+const gulp = require('gulp')
+const uglify = require('gulp-uglify')
+const eslint = require('gulp-eslint')
+const rename = require('gulp-rename')
+const plumber = require('gulp-plumber')
+const rollup = require('gulp-better-rollup')
+const sourcemaps = require('gulp-sourcemaps')
+const version = require('./package.json').version
+
+const plugins = [
+	require('rollup-plugin-node-resolve')({ module: true, browser: true }),
+	require('rollup-plugin-commonjs')({ include: 'node_modules/**' }),
+	require('rollup-plugin-babel')({ presets: ['es2015-rollup'] }),
+	require('rollup-plugin-json')()
+]
+
+const config = {
+  entry: 'src/index.js',
+	output: 'crypto-helpers',
+	distFolder: 'dist',
+	watch: 'src/*.js',
+	eslint: { fix: true },
+	rollup: {
+		format: 'umd',
+		name: 'CryptoHelpers',
+		banner: `/*! crypto-helpers v${version} */`
+	}
+}
+
+// dev build
+gulp.task('js', () =>
+	gulp.src(config.entry)
+		.pipe(plumber(function(e) {
+			let msg = (e.loc.file)
+				? `\n[JS Error] ${e.loc.file}: ${e.message} (${e.loc.line}:${e.loc.column})\n`
+				: `\n[JS Error] ${e.message}\n`
+
+			console.log(msg)
+			this.emit('end')
+		}))
+		.pipe(eslint(config.eslint))
+		.pipe(eslint.format())
+		.pipe(sourcemaps.init())
+		.pipe(rollup({ plugins }, config.rollup))
+		.pipe(rename({
+			dirname: '',
+			basename: config.output
+		}))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(config.distFolder)))
+
+// production build
+gulp.task('build', ['js'], () => {
+	gulp.src(`${config.distFolder}/${config.output}.js`)
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(uglify({
+			output: { comments: /^\!/ }
+		}))
+		.pipe(gulp.dest(config.distFolder))
+})
+
+// dev watch task
+gulp.task('dev', ['js'], () => {
+	gulp.watch(config.watch, ['js'])
+})
