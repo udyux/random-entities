@@ -1,4 +1,4 @@
-import generate from './generate'
+import generate from './core-rng'
 
 export default () =>
   'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'

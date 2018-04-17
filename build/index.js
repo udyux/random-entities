@@ -22,8 +22,8 @@ const config = {
 	eslint: { fix: true },
 	rollup: {
 		format: 'umd',
-		name: 'CryptoRng',
-		banner: `/*! crypto-rng v${version} */`
+		name: 'RandomEntities',
+		banner: `/*! random-entities v${version} */`
 	}
 }
 

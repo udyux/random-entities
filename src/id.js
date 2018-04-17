@@ -1,4 +1,4 @@
-import generate from './generate'
+import generate from './core-rng'
 import fromArray from './from-array'
 import char from './char'
 
