@@ -10,7 +10,7 @@ const version = require('../package.json').version
 
 const plugins = [
 	require('rollup-plugin-node-resolve')({ module: true, browser: true }),
-	require('rollup-plugin-commonjs')({ include: 'node_modules/**' }),
+	require('rollup-plugin-commonjs')({ include: '../node_modules/**' }),
 	require('rollup-plugin-babel')({ presets: ['es2015-rollup'] }),
 	require('rollup-plugin-json')()
 ]
