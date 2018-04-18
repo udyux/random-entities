@@ -10,8 +10,7 @@
   "main": "random-entities.js",
   "scripts": {
     "dev": "gulp dev --gulpfile build/index.js",
-    "build": "gulp build --gulpfile build/index.js",
-    "postinstall": "npm run build"
+    "build": "gulp build --gulpfile build/index.js"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -30,7 +29,7 @@
   "author": "Nicolas Udy <dev@udy.io>",
   "repository": "git@github.com:udyux/random-entities.git",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",
     "eslint-config-standard": "^11.0.0-beta.0",
@@ -45,10 +44,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
-    "polyfill-crypto.getrandomvalues": "^1.0.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.3"
+  },
+  "dependencies": {
+    "polyfill-crypto.getrandomvalues": "^1.0.0"
   }
 }
