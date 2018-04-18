@@ -1,7 +1,7 @@
 {
   "name": "random-entities",
   "version": "1.0.6",
-  "description": "Generate random entities",
+  "description": "Randomization utilities in Node or the browser. About as random as you can get natively.",
   "keywords": [
     "random",
     "rng",

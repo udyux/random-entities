@@ -1,6 +1,6 @@
 # Random-Entities
 
-`window.crypto` randomization utility with a fallback when the environment doesn't support it. About as cryptographically secure as you'll get natively.
+Randomization utilities in Node or the browser. About as random as you can get natively.
 
 > _Disclaimer_: This lib does not claim to be fully cryptographically secure. Use at your own risk. No guarantee of output uniqueness or contextual suitability is given or implied.
 
@@ -65,7 +65,7 @@ Generates a string of one or more characters.
 
 #### Returns
 
-`<String>` 
+`<String>`
 
 A string of random characters.
 
@@ -98,7 +98,7 @@ Generates a unique alpha-numeric identifier string. The first character is alway
 
 #### Returns
 
-`<String>` 
+`<String>`
 
 A string of random characters.
 
@@ -125,7 +125,7 @@ Generates a 128-bit hexadecimal universally unique identifier*
 
 #### Returns
 
-`<String>` 
+`<String>`
 
 A 128-bit hexadecimal UUID
 
@@ -160,7 +160,7 @@ Generates a random whole-number integer between the given limits, ceiling option
 
 #### Returns
 
-`<Number>` 
+`<Number>`
 
 A random number between the given minimum and maximum, exclusively by default.
 
@@ -203,7 +203,7 @@ Generates a random floating-point number between the given limits, ceiling optio
 
 #### Returns
 
-`<Number>` 
+`<Number>`
 
 A random floating-point number between the given minimum and maximum, exclusively by default.
 
@@ -234,7 +234,7 @@ Selects a random entry from an array or string.
 
 #### Returns
 
-`<Any>` 
+`<Any>`
 
 A random selection from the array.
 
@@ -248,4 +248,3 @@ RandomEntities.fromArray([{ prop: 'value' }, [1, 2, 3]])
 RandomEntities.fromArray('antidisestablishmentarianism')
 // => "r"
 ```
-
