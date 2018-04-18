@@ -1,13 +1,17 @@
 {
   "name": "random-entities",
-  "version": "1.2.3",
+  "version": "1.0.5",
   "description": "Generate random entities",
-  "author": "Nicolas Udy <dev@udy.io>",
-  "private": true,
+  "keywords": [
+    "random",
+    "rng",
+    "crypto"
+  ],
   "main": "random-entities.js",
   "scripts": {
     "dev": "gulp dev --gulpfile build/index.js",
-    "build": "gulp build --gulpfile build/index.js"
+    "build": "gulp build --gulpfile build/index.js",
+    "postinstall": "npm run build"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -23,6 +27,9 @@
       "semi": 0
     }
   },
+  "author": "Nicolas Udy <dev@udy.io>",
+  "repository": "git@github.com:udyux/random-entities.git",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",
