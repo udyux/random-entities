@@ -1,4 +1,4 @@
-/*! random-entities v1.0.7 */
+/*! random-entities v1.0.8 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define('RandomEntities', factory) :
@@ -234,7 +234,7 @@ function randomFloat() {
   return twister.random();
 }
 
-var native = window.crypto || window.msCrypto;
+var native = !window ? null : window.crypto || window.msCrypto;
 var rng = !native ? polyfillCrypto_getrandomvalues : native.getRandomValues.bind(native);
 
 var generate = (function () {
