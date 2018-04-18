@@ -1,6 +1,6 @@
 {
   "name": "random-entities",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Randomization utilities in Node or the browser. About as random as you can get natively.",
   "keywords": [
     "random",
