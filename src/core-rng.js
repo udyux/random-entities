@@ -1,6 +1,6 @@
 import rngPolyfill from 'polyfill-crypto.getrandomvalues'
 
-const native = window.crypto || window.msCrypto
+const native = (!window) ? null : window.crypto || window.msCrypto
 const rng = (!native) ? rngPolyfill : native.getRandomValues.bind(native)
 
 export default () =>
