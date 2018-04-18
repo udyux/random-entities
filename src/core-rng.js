@@ -1,9 +1,11 @@
-import rngPolyfill from 'polyfill-crypto.getrandomvalues'
+import MarsenneTwister from 'mersenne-twister'
 
-const native = (!window) ? null : window.crypto || window.msCrypto
-const rng = (!native) ? rngPolyfill : native.getRandomValues.bind(native)
+const native = (typeof window === 'undefined') ? false : window.crypto || window.msCrypto
+const rng = (native) ? native.getRandomValues.bind(native) : new MarsenneTwister()
 
 export default () =>
-    Math.pow(2,-52) * rng(new Uint32Array(2))
+  (!native)
+    ? rng.random()
+    : Math.pow(2,-52) * rng(new Uint32Array(2))
       .reduce((mantissa, n, i) =>
         ((!i) ? n * Math.pow(2,20) : n >>> 12) + mantissa, 0)

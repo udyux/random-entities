@@ -10,7 +10,8 @@
   "main": "random-entities.js",
   "scripts": {
     "dev": "gulp dev --gulpfile build/index.js",
-    "build": "gulp build --gulpfile build/index.js"
+    "build": "gulp build --gulpfile build/index.js",
+    "test": "node ./build/test.js"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -50,6 +51,6 @@
     "rollup-plugin-node-resolve": "^3.0.3"
   },
   "dependencies": {
-    "polyfill-crypto.getrandomvalues": "^1.0.0"
+    "mersenne-twister": "^1.1.0"
   }
 }
