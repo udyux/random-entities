@@ -7,7 +7,7 @@ Randomization utilities in Node or the browser. About as random as you can get n
 ## Install
 
 ```bash
-npm install crypto-rng
+npm install random-entities
 ```
 
 ### Basic usage
